@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!--
+ Copyright 2005-2007 The Kuali Foundation.
+ 
+ Licensed under the Educational Community License, Version 1.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+ 
+ http://www.opensource.org/licenses/ecl1.php
+ 
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+    <form-beans>
+      <form-bean name="BookmarkForm" type="edu.arizona.training.web.BookmarkForm"/>
+    </form-beans>
+
+    <global-exceptions>
+    </global-exceptions>
+
+    <global-forwards>
+    </global-forwards>
+
+    <action-mappings>
+    
+      <action path="/list" type="edu.arizona.training.web.ListAction">
+      	<forward name="list" path="/exercise25/list.jsp"/>
+      </action>
+
+      <action path="/add" type="edu.arizona.training.web.AddAction">
+      	<forward name="add" path="/exercise25/add.jsp"/>
+      </action>
+
+	  <action path="/addProcess" type="edu.arizona.training.web.AddProcessAction" 
+	  		input="/exercise25/add.jsp" name="BookmarkForm" validate="true">
+        <forward name="list" path="/exercise25/list.jsp"/>
+      </action>
+
+      <action path="/edit" type="edu.arizona.training.web.EditAction">
+      	<forward name="edit" path="/exercise25/edit.jsp"/>
+      </action>
+
+	  <action path="/editProcess" type="edu.arizona.training.web.EditProcessAction" 
+	  		input="/exercise25/edit.jsp" name="BookmarkForm" validate="true">
+        <forward name="list" path="/exercise25/list.jsp"/>
+      </action>
+
+      <action path="/delete" type="edu.arizona.training.web.DeleteAction">
+      	<forward name="delete" path="/exercise25/delete.jsp"/>
+      </action>
+
+	  <action path="/deleteProcess" type="edu.arizona.training.web.DeleteProcessAction" 
+	  		input="/exercise25/delete.jsp" name="BookmarkForm" validate="true">
+        <forward name="list" path="/exercise25/list.jsp"/>
+      </action>
+
+    </action-mappings>
+
+    <message-resources parameter="ApplicationResources"/>
+</struts-config>
